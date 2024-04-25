@@ -1,0 +1,10 @@
+table {
+    border-collapse: collapse;
+    margin-left: 400px;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 10px;
+    color: white;
+}
