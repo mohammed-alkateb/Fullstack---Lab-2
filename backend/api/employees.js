@@ -24,7 +24,7 @@ employeesRouter.post('/', async (req, res) => {
 // get employee
 employeesRouter.get('/', async (req, res) => {
     try {
-        const allEmployees = await employee.find();
+        const allEmployees = await employee.find().sort({_id:-1}).limit(5);
         if (allEmployees.length === 0) {
             return res.status(404).json({ message: 'No employees found' });
         }

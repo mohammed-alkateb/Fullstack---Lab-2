@@ -6,21 +6,25 @@ const employeeSchema = new mongoose.Schema({
 });
 
 const projectSchema = new mongoose.Schema({
-    project_name: String,
-    project_description: String,
+    project_code: {
+        type: Number,
+        unique: true
+    },
     employee_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Employee'
-    }
+    },
+    project_name: String,
+    project_description: String,
 });
 
 const projectAssignmentSchema = new mongoose.Schema({
     employee_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Employee'
+        ref: 'Project'
     },
     project_code: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Number,
         ref: 'Project'
     },
     start_date: { type: Date, default: Date.now }
